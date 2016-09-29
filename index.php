@@ -1,7 +1,7 @@
 <?php
 ob_start();
-define('API_KEY','243010172:AAEF1SImHWkNS717vGEgekasA8Yh4a-yg6w');
-$admin = "159887854";
+define('API_KEY','249645076:AAEq0zgjuj4slsFmXadPQb6zKpB4ERLkLSI');
+$admin = "194849320";
 function bot($method,$datas=[]){
     $url = "https://api.telegram.org/bot".API_KEY."/".$method;
     $ch = curl_init();
@@ -30,9 +30,7 @@ if (isset($update->edited_message)){
   $eid = $editm->message_id;
   $edname = $editm->from->first_name;
   $jsu = json_decode(file_get_contents(__DIR__.'/users/'.$eid.'.json'));
-  $text = "<b>".$edname."</b>\nمن دیدم که چی گفتی بازم ادیت کنی میفهمم
-  گفتی:
-".$jsu;
+ $text = "- چرا ادیت کردی <b>".$edname."</b>؟؟\n- من میفهمم هاااا😂 تو گفتی :\n".$text2."\n- TeleGold_Team";
   $id = $update->edited_message->chat->id;
   bot('sendmessage',[
     'chat_id'=>$id,
@@ -45,7 +43,7 @@ if (isset($update->edited_message)){
   //$up = file_get_contents(__DIR__.'/users/'.$eid.'.json');
   //str_replace("edited_message","message",$up);
 }elseif(preg_match('/^\/([Ss]tart)/',$text1)){
-  $text = "به ربات ادیت نکن\nخوش آمدید\nبرای اد کردن من به گروه بر روی لینک زیر بزنید\nhttps://telegram.me/DontEdit_BOT?startgroup=new";
+  $text = '- سهلام😅\n- به ربات ادیت نکن خوش اومدید😊\n- من توی گروه شما میتونم بمونم که هر کسی متنی رو ادیت کرد بهش پیغام بدم😂\n\n- خیلی خوب میشه مچ دوستاتو بگیری تا بدونی قبلا بهت چی گفتم😍😂\n\n<a href="telegram.me/Editer_Bot?startgroup=new">اینجا کلیک کن و منو توی گروهات ببر</a>';
   bot('sendmessage',[
     'chat_id'=>$chat_id,
     'text'=>$text,
@@ -53,10 +51,10 @@ if (isset($update->edited_message)){
     'reply_markup'=>json_encode([
       'inline_keyboard'=>[
         [
-          ['text'=>'alireza_PT','url'=>'https://telegram.me/alireza_PT']
+          ['text'=>'سازندگان','url'=>'https://telegram.me/omidi']
         ],
         [
-          ['text'=>'CreateBOT','url'=>'https://telegram.me/create_antispam_bot']
+          ['text'=>'کانال','url'=>'https://telegram.me/TeleGold_Team']
         ]
       ]
     ])
@@ -67,13 +65,13 @@ if (isset($update->edited_message)){
     $mmemcount = count($member_id) -1;
   bot('sendMessage',[
       'chat_id'=>$chat_id,
-      'text'=>"کاربران : $mmemcount 👤 "
+      'text'=>"- تعداد کاربران : $mmemcount 👤 "
     ]);
 
 }elseif(isset($update->message-> new_chat_member )){
 bot('sendMessage',[
       'chat_id'=>$chat_id,
-      'text'=>"به گروه خوش آمدید "
+      'text'=>"- به گروه خوش اومدی🙈\n- امید وارم بهت خوش بگذره😊"
     ]);
 }
   
