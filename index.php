@@ -30,7 +30,7 @@ if (isset($update->edited_message)){
   $eid = $editm->message_id;
   $edname = $editm->from->first_name;
   $jsu = json_decode(file_get_contents(__DIR__.'/users/'.$eid.'.json'));
- $text = "- چرا ادیت کردی <b>".$edname."</b>؟؟\n- من میفهمم هاااا😂 تو گفتی :\n".$text2."\n- TeleGold_Team";
+ $text = "- چرا ادیت کردی <b>".$edname."</b>؟؟\n- من میفهمم هاااا😂 تو گفتی :\n- ".$text2."";
   $id = $update->edited_message->chat->id;
   bot('sendmessage',[
     'chat_id'=>$id,
@@ -43,7 +43,7 @@ if (isset($update->edited_message)){
   //$up = file_get_contents(__DIR__.'/users/'.$eid.'.json');
   //str_replace("edited_message","message",$up);
 }elseif(preg_match('/^\/([Ss]tart)/',$text1)){
-  $text = '- سهلام😅\n- به ربات ادیت نکن خوش اومدید😊\n- من توی گروه شما میتونم بمونم که هر کسی متنی رو ادیت کرد بهش پیغام بدم😂\n\n- خیلی خوب میشه مچ دوستاتو بگیری تا بدونی قبلا بهت چی گفتم😍😂\n\n<a href="telegram.me/Editer_Bot?startgroup=new">اینجا کلیک کن و منو توی گروهات ببر</a>';
+  $text = '- سهلام😅\n- به ربات ادیت نکن خوش اومدی😊\n- من توی گروه شما میمونم که هر کسی متنی رو ادیت کرد بهش پیغام بدم😂\n\n- خیلی خوب میشه مچ دوستاتو بگیری تا بدونی قبلا بهت چی گفتن😍😂\n\n<a href="telegram.me/Editer_Bot?startgroup=new">اینجا کلیک کن و منو توی گروهات ببر</a>';
   bot('sendmessage',[
     'chat_id'=>$chat_id,
     'text'=>$text,
